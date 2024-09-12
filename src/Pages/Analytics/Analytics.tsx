@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import '../../index.scss';
 import Calendar from '../../Components/Calendar/Calendar'; // Update this import to point to your new Calendar component
 import LineChart from '../../Components/Charts/LineChart';
 import { CiCalendar } from "react-icons/ci";
+import useOutsideClick from '../../Components/Dropdown/useOutsideClick';
 
 const Analytics: React.FC = () => {
   const [showCalendar, setShowCalendar] = useState(false);
+  const [isOpenCalendar, setIsOpenCalendar] = useState(false)
+
+  const dropdownRefLogin = useRef(null);
+
+  useOutsideClick({
+    ref: dropdownRefLogin,
+    handler: () => {
+      setIsOpenCalendar(false)
+    }
+  });
 
   // Current Date and yesterDay Date
   const currentDate = new Date();
@@ -101,7 +112,7 @@ const Analytics: React.FC = () => {
         </div>
         <div className="flex flex-col sm:flex-row justify-between gap-2 mt-4">
           <div className="flex md:justify-center gap-4">
-            <div className='relative'>
+            <div className='relative' ref={dropdownRefLogin}>
               <button 
                 className="btn-custom"
                 onClick={handleCalendarToggle}>

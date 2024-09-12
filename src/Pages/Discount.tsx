@@ -14,7 +14,7 @@ const Discount = () => {
         </div>
         <div className='w-[40%] '>
             <div className='flex flex-col justify-end items-end'>
-                <Link to='/createDiscount'><button className='flex bg-black/75 hover:bg-black text-xs font-bold rounded-lg px-3 py-2 text-white'>Create Discount </button>
+                <Link to='/discount/createDiscount'><button className='flex bg-black/75 hover:bg-black text-xs font-bold rounded-lg px-3 py-2 text-white'>Create Discount </button>
                 </Link>           
             
             </div>

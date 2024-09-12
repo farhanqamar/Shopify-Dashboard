@@ -27,7 +27,7 @@ const AdminSideBar = () => {
       <ul>
         {menuItems.map((item, idx) => (
           item.index === 8 ? (
-            <div className='flex justify-between pr-1 my-2 relative md:right-[12px] hidden md:block' >
+            <div className='flex justify-between pr-1 my-2 relative md:right-[12px]' >
               <p>Sales channels</p>
               <span className='relative top-[6px] text-zinc-400'><MdArrowForwardIos /></span>
             </div>

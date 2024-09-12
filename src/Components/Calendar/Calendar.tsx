@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import {  useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
 
 const DateFilterContainer = ({closeHandler}:any) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [startDate, setStartDate] = useState(new Date(new Date().setMonth(new Date().getMonth() - 1))); // Set to previous month
   const [selectedRange, setSelectedRange] = useState("today");
   const [data, setData] = useState(null); // State to store fetched or displayed data
-
-
+  
+  
   const handleRangeChange = (range) => {
     setSelectedRange(range);
     // Logic to calculate the startDate based on the selected range
@@ -41,12 +42,10 @@ const DateFilterContainer = ({closeHandler}:any) => {
 
   return (
     <>
-      <div className=" bg-white mx-auto p-4">
+      <div className=" bg-white mx-auto p-4" >
         {/* Section 1: Date Range Options */}
-        <div className="flex h-full ">
-
-
-          <ul className=" bg-white p-2 shadow rounded-md w-max">
+        <div className="flex flex-col md:flex-row ">
+          <ul className=" bg-white p-2 shadow rounded-md md:w-max">
             {/* <h2 className="text-lg font-semibold mb-4">Select Range</h2> */}
             <li
               className={`p-1 mb-2 rounded cursor-pointer ${selectedRange === "today" ? "bg-blue-500 text-white" : "bg-gray-200"

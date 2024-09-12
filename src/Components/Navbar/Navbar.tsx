@@ -6,7 +6,6 @@ import { MdOutlineSearch } from "react-icons/md";
 import { TiThMenu } from "react-icons/ti";
 import { IoSearch, IoFilter, IoCloseCircleOutline } from "react-icons/io5";
 import { GrStatusGood } from "react-icons/gr";
-import { GoDotFill } from "react-icons/go";
 import { BsDot } from "react-icons/bs";
 import { FaStore, FaQuestionCircle, FaFileAlt, FaUserFriends, FaKeyboard } from 'react-icons/fa';
 import AdminSideBar from "../AdminSideBar/AdminSideBar";
@@ -77,7 +76,9 @@ const Navbar = () => {
       <section className="bg-[#1A1A1A]">
         <div className="flex justify-between items-center py-2">
           <div className="hidden md:block pl-4">
-            <img src="/logo.svg" alt="Logo Image" />
+            <img src="/logo.png" alt="Logo Image" 
+            className="h-10"
+            />
           </div>
 
 
