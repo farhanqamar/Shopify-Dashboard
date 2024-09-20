@@ -1,11 +1,10 @@
 import {useState} from 'react'
 
 const TaxExemptions = () => {
-    const [isChecked, setIsChecked] = useState(true); // Checkbox is checked by default
+    const [isChecked, setIsChecked] = useState(true); 
 
-  // Handle Checkbox Change
   const handleCheckboxChange = () => {
-    setIsChecked(!isChecked); // Toggle checkbox state
+    setIsChecked(!isChecked);
   };
   return (
     <section>

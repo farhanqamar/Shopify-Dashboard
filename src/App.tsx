@@ -1,20 +1,23 @@
-import { useState } from "react";
-import Analytics from "./Pages/Analytics/Analytics";
-import AdminSideBar from "./Components/AdminSideBar/AdminSideBar";
-import Navbar from "./Components/Navbar/Navbar";
-import Home from "./Pages/Home";
-import Test from "./Pages/Test";
-import Order from "./Pages/Order";
-import {Routes, Route } from "react-router-dom";
-import Product from "./Pages/Product";
-import Collection from "./Pages/Collection";
-import New from "./Pages/New";
-import Customer from "./Pages/customers/Customer";
-import NewCustomer from "./Pages/customers/NewCustomer";
-import Discount from "./Pages/Discount";
-import CreateDiscount from "./Pages/CreateDiscount";
-import BlogPosts from "./Pages/BlogPosts";
-import CreateBlog from "./Pages/CreateBlog";
+import { Routes, Route } from "react-router-dom";
+import { lazy, Suspense } from "react";
+
+const Analytics = lazy(() => import('./Pages/Analytics/Analytics'));
+const AdminSideBar = lazy(() => import("./Components/AdminSideBar/AdminSideBar"));
+const Navbar = lazy(() => import("./Components/Navbar/Navbar"));
+const Home = lazy(() => import("./Pages/Home"));
+const Test = lazy(() => import("./Pages/Test"));
+const Order = lazy(() => import("./Pages/Order"));
+const Product = lazy(() => import("./Pages/Product"));
+const Collection = lazy(() => import("./Pages/Collection"));
+const New = lazy(() => import("./Pages/New"));
+const Customer = lazy(() => import("./Pages/customers/Customer"));
+const NewCustomer = lazy(() => import("./Pages/customers/NewCustomer"));
+const Discount = lazy(() => import("./Pages/Discount"));
+const CreateDiscount = lazy(() => import("./Pages/CreateDiscount"));
+const BlogPosts = lazy(() => import("./Pages/BlogPosts"));
+const CreateBlog = lazy(() => import("./Pages/CreateBlog"));
+const NewProduct = lazy(() => import("./Components/NewProduct"))
+
 
 
 
@@ -23,7 +26,8 @@ function App() {
 
   return (
     <>
-      <Navbar/>
+    <Suspense fallback={<div className="text-lg font-bold text-center">Loading...</div>}>
+    <Navbar/>
       <div className="grid grid-cols-8 ">
         <div className={`col-span-2 2xl:col-span-1 h-[95.6vh] hidden md:block`}>
               <AdminSideBar />
@@ -31,12 +35,14 @@ function App() {
         <div className="col-span-8 md:col-span-6 2xl:col-span-7 bg-[#F1F1F1] h-[95.6vh] overflow-y-auto"> 
         <Routes>
           <Route path='/' element={<Home />} />
+          
+
           <Route path='/analytics' element={<Analytics />} />
           <Route path='/order' element={<Order />} />
 
           <Route path='/product' element={<Product />} />
           <Route path='/product/collection' element={<Collection />} />
-          <Route path='/product/collection/new' element={<New />} />
+          <Route path='/newproduct' element={<NewProduct />} />
 
           <Route path='/customer' element={<Customer/>} />
           <Route path='/customer/newCustomer' element={<NewCustomer/>} />
@@ -54,6 +60,7 @@ function App() {
         </Routes>
         </div>
       </div>
+    </Suspense>
     </>
   )
 }

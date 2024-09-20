@@ -5,7 +5,7 @@ import { IoFilterSharp } from "react-icons/io5";
 import { useState } from "react";
 import TableTopBarItems from "../Components/TableTopBarItems";
 import OrderTable from "../Components/OrderTable";
-
+import { Link } from "react-router-dom";
 
 
 const Product: React.FC  = () => {
@@ -48,7 +48,7 @@ const showTable = () =>{
                         <p className="text-xl font-bold">Add Your Products</p>
                         <p className="w-auto text-sm">Start by stocking your store with products your customer will love</p>
                         <div className="flex md:space-x-4">
-                            <button onClick={showTable} className="bg-black text-white rounded-lg p-2 flex m-auto md:m-0"><IoMdAdd className="text-lg"/>Add Product</button>
+                            <Link to={'/newproduct'}><button className="bg-black text-white rounded-lg p-2 flex m-auto md:m-0"><IoMdAdd className="text-lg"/>Add Product</button></Link>
                             <button className="rounded-lg p-2 border-2 m-auto md:m-0">Import</button>
                         </div>
     

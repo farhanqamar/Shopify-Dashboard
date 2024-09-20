@@ -205,7 +205,7 @@ const CountryCodeInput: React.FC = () => {
 
   return (
     <div className='border border-black' style={{ position: 'relative', width: '80px', borderRadius: '10px' }}>
-      {/* Input Field */}
+      
       <input
         type="text"
         value={selectedCode}
@@ -215,7 +215,7 @@ const CountryCodeInput: React.FC = () => {
         style={{ width: '100%', padding: '8px' }}
       />
 
-      {/* Dropdown List */}
+     
       {showDropdown && (
         <div
           style={{
