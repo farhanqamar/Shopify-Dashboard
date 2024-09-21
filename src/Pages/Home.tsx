@@ -79,7 +79,6 @@ const AddProductCard = () => {
           discription={`Write a description, add photos, and set pricing for the products you plan to sell.`}
           image='/clouth.jpg'
         />
-
       </div>
     </>
   )
@@ -118,7 +117,7 @@ const AddProductBox = ({ heading, discription, image }: AddProductBoxPropse) => 
               </div>
               <div className='font-medium text-sm p-1 '>
                 {/* buttons */}
-                <Link to={'/newproduct'}><button className='bg-black rounded-lg text-white px-3 py-1'>Add product</button></Link>
+                <Link to={'/order'}><button className='bg-black rounded-lg text-white px-3 py-1'>Add product</button></Link>
                 <button className='sm:pl-6 text-black/70 ml-2'>Import products</button>
               </div>
             </div>
