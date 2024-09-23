@@ -24,7 +24,6 @@ const OrderTablePage = lazy(() => import("./Pages/OrderTablePage"))
 
 function App() {
 
-
   return (
     <>
     <Suspense fallback={<div className="text-lg font-bold text-center">Loading...</div>}>
