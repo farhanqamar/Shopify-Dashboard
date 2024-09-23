@@ -43,7 +43,7 @@ const NewCustomer = () => {
         </div>
 
         <div className="text-end">
-           <Link to={'/orderTablePage'}> <button className="bg-black text-white p-2 rounded-lg ">Submit</button></Link>
+          <button className="bg-black text-white p-2 rounded-lg ">Submit</button>
         </div>
        </div>
    </section>

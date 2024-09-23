@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 const Customer = () => {
 
+
+
     return (
         <section className="overflow-x-hidden px-10">
             <div className='p-5'>
@@ -21,7 +23,7 @@ const Customer = () => {
                                 <Link to={"/customer/newCustomer"}>
                                     <button className="bg-gradient-to-b from-black/80 to-black/60 hover:bg-black text-white rounded-lg p-2 flex m-auto md:m-0"><IoMdAdd className="text-lg" />Add Customer</button>
                                 </Link>
-                                <button className="rounded-lg p-2 border m-auto md:m-0 hover:bg-[#f1f1f1]">Import Customer</button>
+                                <Link to={{ pathname: '/customer/allCustomer', }}><button className="rounded-lg p-2 border m-auto md:m-0 hover:bg-[#f1f1f1]">All Cutomers</button></Link>
                             </div>
                         </div>
 

@@ -1,20 +1,20 @@
 import React, { useState, useRef, useEffect } from "react";
 import { IoFilterSharp } from "react-icons/io5";
 
-
 const columnsData = [
-  "id", "Product Name", "Column 3", "Column 4", "Column 5", "Column 6", "Column 7", "Column 8", "Column 9", "Column 10", "Column 11", "Column 12", "Column 13", "Column 14",
-  "Column 15", "Column 16", "Column 17", "Column 18", "Column 19", "Column 20", "Column 21", "Column 22"
-];
+    "id", "title", "description", "vendor", "product_type", "tags", "variants", "images", "price", "compare_at_price", "inventory_quantity", "availability", "weight", "weight_unit",
+    "dimensions", "height", "width", "depth", "seo_title", "seo_description", "url_handle", "template"
+  ];
 
-const dataRows = [
-  ["Data 1", "Data 2", "Data 3", "Data 4", "Data 5", "Data 6", "Data 7", "Data 8", "Data 9", "Data 10", "Data 11", "Data 12",
-    "Data 13", "Data 14", "Data 15", "Data 16", "Data 17", "Data 18", "Data 19", "Data 20", "Data 21", "Data 22"
-  ],
-  // Add more rows as needed
-];
+  const dataRows = [
+    ["Data 1", "Data 2", "Data 3", "Data 4", "Data 5", "Data 6", "Data 7", "Data 8", "Data 9", "Data 10", "Data 11", "Data 12",
+      "Data 13", "Data 14", "Data 15", "Data 16", "Data 17", "Data 18", "Data 19", "Data 20", "Data 21", "Data 22"
+    ],
+    // Add more rows as needed
+  ];
 
-const DynamicTable = () => {
+
+const ProductTable = () => {
   const [visibleColumns, setVisibleColumns] = useState(
     columnsData?.map((_:any, index:any) => index < 10) // Show first 10 columns initially
   );
@@ -60,7 +60,7 @@ const DynamicTable = () => {
   return (
     <div className="p-4">
       <div>
-        <h1>Order</h1>
+        <p className='text-2xl font-bold text-[#303030]'>Products</p>
       </div>
       {/* Dropdown button */}
       <div className="flex justify-end">
@@ -130,4 +130,4 @@ const DynamicTable = () => {
   );
 };
 
-export default DynamicTable;
+export default ProductTable;

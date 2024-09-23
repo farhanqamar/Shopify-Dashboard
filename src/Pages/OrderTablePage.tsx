@@ -3,7 +3,7 @@ import OrderTable from "../Components/OrderTable";
 
 // Dummy Data
 const columnData = [
-    "Column 1", "Column 2", "Column 3", "Column 4", "Column 5", "Column 6", "Column 7", "Column 8", "Column 9", "Column 10", "Column 11", "Column 12", "Column 13", "Column 14",
+    "id", "Product Name", "Column 3", "Column 4", "Column 5", "Column 6", "Column 7", "Column 8", "Column 9", "Column 10", "Column 11", "Column 12", "Column 13", "Column 14",
     "Column 15", "Column 16", "Column 17", "Column 18", "Column 19", "Column 20", "Column 21", "Column 22"
   ];
 
@@ -20,8 +20,9 @@ const OrderTablePage = () => {
   return (
     <>
      <OrderTable
+        heading={`Product`}
         columnsData={columnData} // put here First heading row data
-        dataRows={dataRow}      // put here all rows data
+        dataRows={dataRow}    // put here all rows data
         />
     </>
   )

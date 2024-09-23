@@ -53,7 +53,7 @@ const Product: React.FC = () => {
                                             <IoMdAdd className="mr-1 text-lg" /> Add Product
                                         </button>
                                     </Link>
-                                    <button className="rounded-lg p-3 border-2 m-auto md:m-0">Import</button>
+                                    <Link to={"/product/allProducts"}><button className="rounded-lg p-3 border-2 m-auto md:m-0">Show All Products</button></Link>
                                 </div>
 
                             </div>
