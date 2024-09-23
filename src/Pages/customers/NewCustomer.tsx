@@ -41,6 +41,10 @@ const NewCustomer = () => {
             </div>
             <input type="text" className="rounded-lg w-full p-2 border border-black" />
         </div>
+
+        <div className="text-end">
+           <Link to={'/orderTablePage'}> <button className="bg-black text-white p-2 rounded-lg ">Submit</button></Link>
+        </div>
        </div>
    </section>
   )

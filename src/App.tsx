@@ -16,7 +16,8 @@ const Discount = lazy(() => import("./Pages/Discount"));
 const CreateDiscount = lazy(() => import("./Pages/CreateDiscount"));
 const BlogPosts = lazy(() => import("./Pages/BlogPosts"));
 const CreateBlog = lazy(() => import("./Pages/CreateBlog"));
-const NewProduct = lazy(() => import("./Components/NewProduct"))
+const NewProduct = lazy(() => import("./Components/NewProduct"));
+const OrderTablePage = lazy(() => import("./Pages/OrderTablePage"))
 
 
 
@@ -54,13 +55,14 @@ function App() {
           <Route path='/blog-post' element={<BlogPosts/>} />
           <Route path='/blog-post/createBlog' element={<CreateBlog/>} />
 
-
-
+          <Route path="/orderTablePage" element={<OrderTablePage />} />
           <Route path='/test' element={<Test />} />
         </Routes>
         </div>
       </div>
     </Suspense>
+
+    
     </>
   )
 }

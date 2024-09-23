@@ -18,19 +18,19 @@ const Home = () => {
         </div>
         <div className='pt-5'>
           <PointofSale
-          heading='Set up Point of sale'
-          discription="Because you're interested in selling in person."
-          completedOrder={0}
-          totalOrder={`/ ${2} completed`}
-           />
+            heading='Set up Point of sale'
+            discription="Because you're interested in selling in person."
+            completedOrder={0}
+            totalOrder={`/ ${2} completed`}
+          />
         </div>
         <div className='pt-5'>
           <PointofSale
-          heading='Get inspired to launch your business'
-          discription="Browsing existing shopify stores to inspire your own approach to bulding a brand and launching a business that stands out."
-          totalOrder="View examples"
-          image={<img src="/clouth.jpg" alt="" className='w-24 h-24'/>}
-           />
+            heading='Get inspired to launch your business'
+            discription="Browsing existing shopify stores to inspire your own approach to bulding a brand and launching a business that stands out."
+            totalOrder="View examples"
+            image={<img src="/clouth.jpg" alt="" className='w-24 h-24' />}
+          />
         </div>
       </div>
     </section>
@@ -42,12 +42,12 @@ const AddProductCard = () => {
     <>
       <div className='bg-[#FFFFFF] p-4 sm:rounded-lg'>
         <div >
-        <PointofSale
-          heading='Get ready to sell'
-          discription="Here's a guide a get started. As your business grows, you'll get fresh tips and insights here."
-          completedOrder={0}
-          totalOrder={`/ ${6} completed`}
-           />
+          <PointofSale
+            heading='Get ready to sell'
+            discription="Here's a guide a get started. As your business grows, you'll get fresh tips and insights here."
+            completedOrder={0}
+            totalOrder={`/ ${6} completed`}
+          />
         </div>
         <AddProductBox
           heading='Add your first Product'
@@ -140,25 +140,25 @@ interface PointofSaleProps {
   image?: ReactNode
 }
 
-const PointofSale = ({heading, discription, totalOrder, completedOrder,image}:PointofSaleProps) => {
-  return(
+const PointofSale = ({ heading, discription, totalOrder, completedOrder, image }: PointofSaleProps) => {
+  return (
     <>
-    <div className='bg-[#FFFFFF] p-4 sm:rounded-lg flex'>
-    <div className='sm:w-3/4'>
-        <div >
-          {/* card */}
-          <h3 className='text-xl font-semibold'>{heading}</h3>
-          <p className='font-medium text-black/60'>{discription}</p>
+      <div className='bg-[#FFFFFF] p-4 sm:rounded-lg flex'>
+        <div className='sm:w-3/4'>
+          <div >
+            {/* card */}
+            <h3 className='text-xl font-semibold'>{heading}</h3>
+            <p className='font-medium text-black/60'>{discription}</p>
+          </div>
+          <div>
+            {/* completed */}
+            <button className='border border-black-100/10 rounded-lg px-2 py-[2px]'>{completedOrder} {totalOrder}</button>
+          </div>
         </div>
-        <div>
-          {/* completed */}
-          <button className='border border-black-100/10 rounded-lg px-2 py-[2px]'>{completedOrder} {totalOrder}</button>
+        <div className='hidden sm:block'>
+          {image}
         </div>
-    </div>
-    <div className='hidden sm:block'>
-      {image}
-    </div>
-    </div>
+      </div>
     </>
   )
 }

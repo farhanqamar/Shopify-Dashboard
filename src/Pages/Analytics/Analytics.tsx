@@ -7,7 +7,7 @@ import useOutsideClick from '../../Components/Dropdown/useOutsideClick';
 
 const Analytics: React.FC = () => {
   const [showCalendar, setShowCalendar] = useState(false);
-  const [isOpenCalendar, setIsOpenCalendar] = useState(false)
+  const [isOpenCalendar, setIsOpenCalendar] = useState(false);
 
   const dropdownRefLogin = useRef(null);
 
