@@ -48,7 +48,7 @@ const Product: React.FC = () => {
                                 <p className="text-xl font-bold">Add Your Products</p>
                                 <p className="w-auto text-sm">Start by stocking your store with products your customer will love</p>
                                 <div className="flex md:space-x-4">
-                                    <Link to={'/newproduct'}>
+                                    <Link to={'/product/newproduct'}>
                                         <button className="bg-black text-white rounded-lg p-3 flex items-center">
                                             <IoMdAdd className="mr-1 text-lg" /> Add Product
                                         </button>
