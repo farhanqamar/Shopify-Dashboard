@@ -1,9 +1,5 @@
-
-import { BiSearch } from "react-icons/bi";
 import { IoMdAdd } from "react-icons/io";
-import { IoFilterSharp } from "react-icons/io5";
 import { useState } from "react";
-import TableTopBarItems from "../Components/TableTopBarItems";
 import OrderTable from "../Components/OrderTable";
 import { Link } from "react-router-dom";
 
@@ -21,27 +17,6 @@ const Product: React.FC = () => {
 
             <div className="shadow-lg rounded-2xl">
                 <div className="bg-white py-2">
-                    {showProduct ?
-                        (<TableTopBarItems />)
-                        : (<div className="flex justify-between  border-b-2 border-gray-400/10">
-                            <div className='flex px-4'>
-                                <button className='hover:bg-gray-500/10 text-gray-500 rounded-lg text-lg px-2 py-1 font-semibold '>All</button>
-                                <button className='hover:bg-gray-500/10 text-gray-500 rounded-lg text-lg px-3 font-semibold '>Active</button>
-                                <button className='hover:bg-gray-500/10 text-gray-500 rounded-lg text-lg px-3 font-semibold '>Draft</button>
-                                <button className='hover:bg-gray-500/10 text-gray-500 rounded-lg text-lg px-3 font-semibold '>Archived</button>
-                                <button className='hover:bg-gray-500/10 text-gray-500 rounded-lg text-2xl px-3 font-semibold '><IoMdAdd /></button>
-                            </div>
-
-
-                            <div className="text-gray-500 text-lg flex rounded-lg p-2">
-                                <button className='hover:bg-gray-500/10 text-gray-500 rounded-lg text-2xl font-semibold p-2'><BiSearch /></button>
-                                <button className='hover:bg-gray-500/10 text-gray-500 rounded-lg text-2xl font-semibold p-2'> <IoFilterSharp /></button>
-                            </div>
-                        </div>)}
-
-
-
-
                     {showProduct ?
                         (<div className="flex justify-evenly py-10">
                             <div className="space-y-4 md:mt-10 mt-5 md:text-start text-center">
@@ -67,7 +42,7 @@ const Product: React.FC = () => {
                             <p className="text-xl font-bold">Find product to sell</p>
                             <p className="text-sm">Have dropshipping or print on demand products shipped directly form supplier to customer, and only pay for what you sell</p>
                         </div>
-                        <button className="bg-white rounded-md px-2 py-1 ">Broser product sourcing app</button>
+                        <button className="bg-white rounded-md px-2 py-1 ">Browse Product Sourcing App</button>
                     </div>)
                     : ('')
                 }

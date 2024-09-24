@@ -3,9 +3,6 @@ import customer_main from '../../assets/customer_main.svg';
 import { Link } from "react-router-dom";
 
 const Customer = () => {
-
-
-
     return (
         <section className="overflow-x-hidden px-10">
             <div className='p-5'>
@@ -19,11 +16,17 @@ const Customer = () => {
                         <div className="space-y-4 md:mt-10 mt-5 md:text-start text-center">
                             <p className="text-xl font-bold">Everything customers-related in one place</p>
                             <p className="w-auto text-sm">Manage customer details, see customer order history, and group customers into segments.</p>
-                            <div className="flex  md:space-x-4">
+                            <div className="flex md:space-x-4">
                                 <Link to={"/customer/newCustomer"}>
-                                    <button className="bg-gradient-to-b from-black/80 to-black/60 hover:bg-black text-white rounded-lg p-2 flex m-auto md:m-0"><IoMdAdd className="text-lg" />Add Customer</button>
+                                    <button className="bg-gradient-to-b from-black/80 to-black/60 hover:bg-black text-white rounded-lg flex items-center justify-center p-3 w-full max-w-[200px]">
+                                        <IoMdAdd className="mr-2" /> Add Customer
+                                    </button>
                                 </Link>
-                                <Link to={{ pathname: '/customer/allCustomer', }}><button className="rounded-lg p-2 border m-auto md:m-0 hover:bg-[#f1f1f1]">All Cutomers</button></Link>
+                                <Link to={{ pathname: '/customer/allCustomer' }}>
+                                    <button className="rounded-lg border flex items-center justify-center p-3 w-full max-w-[200px] hover:bg-[#f1f1f1]">
+                                        All Customers
+                                    </button>
+                                </Link>
                             </div>
                         </div>
 
@@ -34,17 +37,19 @@ const Customer = () => {
                 </div>
 
                 <div className="bg-gray-400/10 flex">
-                    <div className=" p-5 space-y-6 flex ml-[18%] flex-col text-center md:text-left rounded-b-lg">
-                        <div className="">
+                    <div className="p-5 space-y-6 flex ml-[18%] flex-col text-center md:text-left rounded-b-lg">
+                        <div>
                             <p className="text-xl font-bold">Get customers with apps</p>
-                            <p className="text-sm">Grow your customer list by adding a lead capture form to your store and marketing</p>
+                            <p className="text-sm">Grow your customer list by adding a lead capture form to your store and marketing.</p>
                         </div>
-                        <button className="bg-white rounded-md px-2 py-1 w-1/3 hover:bg-white/70">See App Recommendation</button>
+                        <button className="bg-white rounded-md px-4 py-2 w-1/3 hover:bg-white/70">
+                            See App Recommendation
+                        </button>
                     </div>
                 </div>
             </div>
         </section>
-    )
+    );
 }
 
-export default Customer
+export default Customer;

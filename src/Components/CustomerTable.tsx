@@ -1,46 +1,63 @@
 import React, { useState, useRef, useEffect } from "react";
 import { IoFilterSharp } from "react-icons/io5";
+import CustomerAnalyticBar from './CustomerAnalyticBar';
 
 const columnsData = [
-    "First name", "Last name", " Email", " Phone", " Company", " Address1", " Address2", " City", " Province", " Country", " Zip code", " Accepts marketing", " Tags", "Note",
-    "Loyalty points", "Groups",
-  ];
+  "id", 
+  "first_name", 
+  "last_name", 
+  "email", 
+  "phone", 
+  "company", 
+  "address1", 
+  "address2", 
+  "city", 
+  "province", 
+  "country", 
+  "zip_code", 
+  "accepts_marketing", 
+  "tags", 
+  "note", 
+  "loyalty_points", 
+  "groups"
+];
 
-  const dataRows = [
-    ["Data 1", "Data 2", "Data 3", "Data 4", "Data 5", "Data 6", "Data 7", "Data 8", "Data 9", "Data 10", "Data 11", "Data 12",
-      "Data 13", "Data 14", "Data 15", "Data 16",
-    ],
-    // Add more rows as needed
-  ];
-
-
-const CustomerTable = () => {
+const DynamicTable = () => {
+  const [customers, setCustomers] = useState([]);
   const [visibleColumns, setVisibleColumns] = useState(
-    columnsData?.map((_:any, index:any) => index < 10) // Show first 10 columns initially
+    columnsData.map((_, index) => index < 10) // Show first 10 columns initially
   );
 
-  console.log("columnsData:", columnsData); // Add this log to verify
-  console.log("dataRows:", dataRows); // Add this log to verify
-  
-  
-  // Dropdown open state
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  
-  // Ref for handling clicks outside the dropdown
   const dropdownRef = useRef(null);
 
   useEffect(() => {
-    const handleOutsideClick = (event:any) => {
+    const fetchCustomers = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:8000/store/customers/");
+        if (!response.ok) throw new Error("Network response was not ok");
+        const data = await response.json();
+        setCustomers(data); // Set the fetched customer data
+      } catch (error) {
+        console.error("Error fetching customers:", error);
+      }
+    };
+
+    fetchCustomers();
+  }, []);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setDropdownOpen(false);
       }
     };
-    
+
     document.addEventListener("mousedown", handleOutsideClick);
     return () => document.removeEventListener("mousedown", handleOutsideClick);
   }, []);
 
-  const handleCheckboxChange = (index:any) => {
+  const handleCheckboxChange = (index) => {
     const newVisibleColumns = [...visibleColumns];
     
     if (newVisibleColumns[index]) {
@@ -58,76 +75,78 @@ const CustomerTable = () => {
   };
 
   return (
-    <div className="p-4">
-      <div>
-        <p className='text-2xl font-bold text-[#303030]'>Customer</p>
-      </div>
-      {/* Dropdown button */}
-      <div className="flex justify-end">
-      <div className="relative inline-block" ref={dropdownRef}>
-        
-        <button
-          className="bg-blue-500 text-white px-4 py-2 rounded focus:outline-none"
-          onClick={() => setDropdownOpen(!isDropdownOpen)}>
-          <span><IoFilterSharp /></span>
-        </button>
-        
-        
+    <div className="p-4 space-y-6">
+      <h1 className="text-2xl font-bold">Customers</h1>
 
-        {/* Dropdown content */}
-        {isDropdownOpen && (
-          <div className="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg z-10 h-[300px] overflow-y-auto">
-            {columnsData.map((column:any, index:any) => (
-              <div key={index} className="px-4 py-2">
-                <label className="inline-flex items-center">
-                  <input
-                    type="checkbox"
-                    className="form-checkbox text-blue-600"
-                    checked={visibleColumns[index]}
-                    onChange={() => handleCheckboxChange(index)}
-                  />
-                  <span className="ml-2">{column}</span>
-                </label>
+      {/* Customer Analytics Section */}
+      <CustomerAnalyticBar />
+
+      {/* Filter and Table Section */}
+      <div className="bg-white p-4 rounded shadow-md">
+        {/* Dropdown button */}
+        <div className="flex justify-end mb-4">
+          <div className="relative inline-block" ref={dropdownRef}>
+            <button
+              className="bg-blue-500 text-white px-4 py-2 rounded focus:outline-none"
+              onClick={() => setDropdownOpen(!isDropdownOpen)}
+            >
+              <IoFilterSharp />
+            </button>
+
+            {/* Dropdown content */}
+            {isDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-white border rounded shadow-lg z-10 h-[300px] overflow-y-auto">
+                {columnsData.map((column, index) => (
+                  <div key={index} className="px-4 py-2">
+                    <label className="inline-flex items-center">
+                      <input
+                        type="checkbox"
+                        className="form-checkbox text-blue-600"
+                        checked={visibleColumns[index]}
+                        onChange={() => handleCheckboxChange(index)}
+                      />
+                      <span className="ml-2">{column.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase())}</span>
+                    </label>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
-        )}
-      </div>
-      </div>
+        </div>
 
-      {/* Table */}
-      <div className="overflow-x-auto mt-4">
-        <table className="min-w-full table-auto border-collapse">
-          <thead>
-            <tr>
-              {columnsData.map(
-                (column:any, index:any) =>
-                  visibleColumns[index] && (
-                    <th key={index} className="border px-4 py-2 bg-[#D9D9D9]">
-                      {column}
-                    </th>
-                  )
-              )}
-            </tr>
-          </thead>
-          <tbody>
-            {dataRows.map((row:any, rowIndex:any) => (
-              <tr key={rowIndex}>
-                {row.map(
-                  (cell:any, index:any) =>
+        {/* Table */}
+        <div className="overflow-x-auto">
+          <table className="min-w-full table-auto border-collapse">
+            <thead>
+              <tr>
+                {columnsData.map(
+                  (column, index) =>
                     visibleColumns[index] && (
-                      <td key={index} className="border px-4 py-2">
-                        {cell}
-                      </td>
+                      <th key={index} className="border px-6 py-4 bg-[#D9D9D9] text-left">
+                        {column.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase())}
+                      </th>
                     )
                 )}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {customers.map((customer) => (
+                <tr key={customer.id}>
+                  {columnsData.map((column, index) =>
+                    visibleColumns[index] && (
+                      <td key={index} className="border px-6 py-4">
+                        {customer[column] !== null ? customer[column].toString() : "N/A"}
+                      </td>
+                    )
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
 };
 
-export default CustomerTable;
+export default DynamicTable;
