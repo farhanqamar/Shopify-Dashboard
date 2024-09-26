@@ -35,6 +35,8 @@ const Editor = () => {
   }, []);
 
   return (
+     <section>
+         {/* <h1 className='font-semibold'>Description</h1> */}
     <div className="h-auto rounded-lg shadow-md">
     <div ref={toolbarRef} id="toolbar" className='rounded-t-lg'>
       <span className="ql-formats">
@@ -67,8 +69,9 @@ const Editor = () => {
         <button className="ql-clean"></button>
       </span>
     </div>
-    <div ref={editorRef} className="h-64 rounded-b-lg"></div>
+    <div ref={editorRef} className="h-auto rounded-b-lg"></div>
   </div>
+     </section>
   );};
 
 export default Editor;

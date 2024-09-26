@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 
 const Product: React.FC = () => {
-    const [showProduct, setSHowProduct] = useState(true)
+    const [showProduct, setSHowProduct] = useState(true);
     const showTable = () => {
         setSHowProduct(!showProduct)
     }
@@ -24,15 +24,16 @@ const Product: React.FC = () => {
                                 <p className="w-auto text-sm">Start by stocking your store with products your customer will love</p>
                                 <div className="flex md:space-x-4">
                                     <Link to={'/product/newproduct'}>
-                                        <button className="bg-black text-white rounded-lg p-3 flex items-center">
+                                        <button className="bg-black text-white rounded-lg py-1.5 px-3 text-sm flex items-center">
                                             <IoMdAdd className="mr-1 text-lg" /> Add Product
                                         </button>
                                     </Link>
-                                    <Link to={"/product/allProducts"}><button className="rounded-lg p-3 border-2 m-auto md:m-0">Show All Products</button></Link>
+                                    <Link to={"/product/allProducts"}><button className="rounded-lg  py-1.5 px-3 text-sm border-2 m-auto md:m-0">Show All Products</button></Link>
                                 </div>
 
                             </div>
-                        </div>)
+                        </div>
+                        )
                         : ('')
                     }
                 </div>

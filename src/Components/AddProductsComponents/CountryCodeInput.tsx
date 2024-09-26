@@ -204,31 +204,21 @@ const CountryCodeInput: React.FC = () => {
   };
 
   return (
-    <div className='border border-black' style={{ position: 'relative', width: '80px', borderRadius: '10px' }}>
-      
+    <div className='relative w-[80px]' >
+
       <input
         type="text"
         value={selectedCode}
         onClick={() => setShowDropdown(!showDropdown)}
         readOnly
         placeholder="country code"
-        style={{ width: '100%', padding: '8px' }}
+        className='border border-black rounded-lg w-full p-2'
       />
 
-     
+
       {showDropdown && (
         <div
-          style={{
-            position: 'absolute',
-            top: '100%',
-            left: 0,
-            width: '100%',
-            maxHeight: '200px',
-            overflowY: 'auto',
-            border: '1px solid #ccc',
-            backgroundColor: '#fff',
-            zIndex: 1,
-          }}
+        className="absolute top-full left-0 w-full max-h-[200px] overflow-y-auto border border-gray-300 bg-white z-10"
         >
           {countryCodes.map((country, index) => (
             <div
@@ -236,8 +226,8 @@ const CountryCodeInput: React.FC = () => {
               onClick={() => handleSelectCode(country.code)}
               style={{ padding: '8px', cursor: 'pointer', borderBottom: '1px solid #ddd' }}
             >
-              {/* {country.name} */}
-               ({country.code})
+              {country.name}
+              {/* ({country.code}) */}
             </div>
           ))}
         </div>
@@ -245,4 +235,5 @@ const CountryCodeInput: React.FC = () => {
     </div>
   );
 };
+
 export default CountryCodeInput;

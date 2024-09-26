@@ -9,7 +9,7 @@ const Shipping = () => {
 
   return (
     <section>
-      <div className='bg-white rounded-lg p-4 border space-y-4'>
+      <div className='bg-white rounded-lg py-4 space-y-4'>
         <h1 className='font-bold text-base'>Shipping</h1>
 
         <div className='space-y-2'>
@@ -32,7 +32,7 @@ const Shipping = () => {
               <input
                 type="text"
                 placeholder='0.0'
-                className="w-full p-2 border border-black rounded-md"
+                className="w-[200px] p-2 border border-black rounded-md"
               />
             </div>
             <p className='text-sm'>

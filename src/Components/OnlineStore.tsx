@@ -30,11 +30,11 @@ const OnlineStore = () => {
         setIsDropdownOpen(false);
       };
   return (
-    <div className="relative w-[200] px-2" style={{ position: "relative", width: "200px" }}>
-    <label className="text-base" htmlFor="">Theme template</label>
+    <div className="relative">
+    <label className="text-sm" htmlFor="">Theme template</label>
 <input
   type="text"
-  className="w-full p-2 border border-black rounded-lg"
+  className="w-full p-1 border border-black rounded-lg"
   value={inputValue}
   onChange={handleInputChange}
   onClick={() => setIsDropdownOpen(!isDropdownOpen)}

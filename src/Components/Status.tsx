@@ -29,7 +29,7 @@ const Status = () => {
     };
 
     return (
-        <div className="relative w-full p-4 border rounded-lg space-y-2">
+        <div className="relative w-full p-2 rounded-lg space-y-2">
             <label className="text-base font-semibold" htmlFor="status-input">Status</label>
             <input
                 id="status-input"
@@ -42,7 +42,7 @@ const Status = () => {
             />
             {isDropdownOpen && (
                 <ul
-                    className="absolute top-full left-0 right-0 border bg-white z-[1000] p-0 m-0 list-none rounded-lg">
+                    className="absolute left-0 right-0 border bg-white z-[1000] p-0 m-0 list-none rounded-lg">
                     {dropdownItems.map((item) => (
                         <li
                             key={item.id}

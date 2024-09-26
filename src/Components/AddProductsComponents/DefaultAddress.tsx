@@ -1,10 +1,10 @@
-import Country from './Country'
+import Country from '../Country'
 import CountryCodeInput from './CountryCodeInput'
 
 const DefaultAddress = () => {
   return (
     <section className=''>
-        <div className='space-y-4 p-6 rounded-xl bg-white font-semibold'>
+        <div className='space-y-4 p-6 sm:rounded-xl bg-white font-semibold'>
             <div>
                 <h1 className='text-base font-semibold'>Default Address</h1>
                 <p>The primary address of this customer</p>
@@ -51,7 +51,7 @@ const DefaultAddress = () => {
                  </div>
             </div>
             <div>
-             <label className='text-sm p-1' htmlFor="">Phone Number</label>
+             <label className='text-sm p-1' htmlFor="">Phone</label>
                 <div className="flex space-x-2 ">
                     <CountryCodeInput/>
                         <input
