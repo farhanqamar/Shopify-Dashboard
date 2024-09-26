@@ -1,5 +1,6 @@
 import {useState} from 'react'
-import { countryCodes } from './CountryCodeInput';
+
+import { countryCodes } from './AddProductsComponents/CountryCodeInput';
 
 const Country = () => {
     const [selectedCode, setSelectedCode] = useState('');
@@ -10,7 +11,8 @@ const Country = () => {
       setShowDropdown(false);
     };
   return (
-    <div className='border border-black w-full' style={{ position: 'relative', borderRadius: '10px' }}>
+    <div className=' w-full relative space-y-4'>
+
       {/* Input Field */}
       <input
         type="text"
@@ -18,8 +20,13 @@ const Country = () => {
         onClick={() => setShowDropdown(!showDropdown)}
         readOnly
         placeholder="Pakistan"
-        style={{ width: '100%', padding: '8px' }}
+        className='w-full p-2 border border-black rounded-lg'
       />
+      
+      <div className='flex flex-col w-full py-2'>
+          <label htmlFor="">Harmonized System (HS) Code</label>
+          <input type="text" placeholder='Search By Product KeyWord Or Code' className='w-full p-2 border border-black rounded-lg'/>
+      </div>
 
       {/* Dropdown List */}
       {showDropdown && (

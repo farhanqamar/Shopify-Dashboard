@@ -1,5 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import Collection from "./Pages/Collection";
+import NewOrder from "./Pages/NewOrder";
 
 
 const Analytics = lazy(() => import('./Pages/Analytics/Analytics'));
@@ -37,14 +39,15 @@ function App() {
           <div className="col-span-8 md:col-span-6 2xl:col-span-7 bg-[#F1F1F1] h-[95.6vh] overflow-y-auto">
             <Routes>
               <Route path='/' element={<Home />} />
-
-
+              
               <Route path='/analytics' element={<Analytics />} />
               <Route path='/order' element={<Order />} />
+              <Route path="/order/newOrder" element={<NewOrder />} />
 
               <Route path='/product' element={<Product />} />
               <Route path='/product/newproduct' element={<NewProduct />} />
               <Route path="/product/allProducts" element={<ProductTable />} />
+              <Route path="/product/collection" element={<Collection/>} />
 
               <Route path='/customer' element={<Customer />} />
               <Route path='/customer/newCustomer' element={<NewCustomer />} />
@@ -55,7 +58,6 @@ function App() {
               {/* Add the below line and also import it. */}
               <Route path="/discount/discountTable" element={<DiscountTable />} />
 
-
               <Route path='/blog-post' element={<BlogPosts />} />
               <Route path='/blog-post/createBlog' element={<CreateBlog />} />
               
@@ -63,8 +65,6 @@ function App() {
           </div>
         </div>
       </Suspense>
-
-
     </>
   )
 }

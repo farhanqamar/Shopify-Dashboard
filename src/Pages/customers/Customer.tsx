@@ -16,14 +16,14 @@ const Customer = () => {
                         <div className="space-y-4 md:mt-10 mt-5 md:text-start text-center">
                             <p className="text-xl font-bold">Everything customers-related in one place</p>
                             <p className="w-auto text-sm">Manage customer details, see customer order history, and group customers into segments.</p>
-                            <div className="flex md:space-x-4">
+                            <div className="flex md:space-x-2">
                                 <Link to={"/customer/newCustomer"}>
-                                    <button className="bg-gradient-to-b from-black/80 to-black/60 hover:bg-black text-white rounded-lg flex items-center justify-center p-3 w-full max-w-[200px]">
+                                    <button className="bg-gradient-to-b from-black/80 to-black/60 hover:bg-black text-white rounded-lg flex items-center justify-center px-3 py-[6px] w-full max-w-[200px] text-sm">
                                         <IoMdAdd className="mr-2" /> Add Customer
                                     </button>
                                 </Link>
                                 <Link to={{ pathname: '/customer/allCustomer' }}>
-                                    <button className="rounded-lg border flex items-center justify-center p-3 w-full max-w-[200px] hover:bg-[#f1f1f1]">
+                                    <button className="rounded-lg border flex items-center justify-center p-3 w-full max-w-[200px] hover:bg-[#f1f1f1] px-3 py-[6px] text-sm">
                                         All Customers
                                     </button>
                                 </Link>

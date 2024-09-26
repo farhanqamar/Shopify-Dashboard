@@ -13,15 +13,25 @@ import { Link } from 'react-router-dom';
 const NewProduct = () => {
   const [shipping, setShipping] = useState(false)
   return (
+<<<<<<< HEAD
     <section className="lg:space-y-4 flex lg:flex-row flex-col justify-center lg:space-x-3 py-6 space-y-0">
       {/* Left Section */}
       <div className="w-full lg:w-2/4 space-y-6 m-auto md:m-0">
+=======
+    <section className="lg:space-y-4 flex xl:flex-row flex-col justify-center sm:px-4 xl:px-0 lg:space-x-3 py-6 space-y-0">
+      {/* Left Section */}
+      <div className="w-full xl:w-2/5 space-y-6 m-auto md:m-0">
+>>>>>>> c4aa2a8a8549820d9b0a633fd346ad81ba11a1d8
           <div className='flex items-center'>
               <Link to={'/product'}><MdArrowBack className='text-xl'/></Link>
               <h1 className="text-lg font-bold p-2">Add Product</h1>
           </div>
 
+<<<<<<< HEAD
         <div className="bg-white shadow-lg rounded-lg px-2 py-4 border">
+=======
+        <div className="bg-white shadow-lg sm:rounded-lg px-2 py-4 border">
+>>>>>>> c4aa2a8a8549820d9b0a633fd346ad81ba11a1d8
           <div>
             <div className="p-4 rounded-lg space-y-4">
               <div className="flex flex-col space-y-2">
@@ -59,7 +69,11 @@ const NewProduct = () => {
         </div>
 
         {/* Pricing Section */}
+<<<<<<< HEAD
         <div className="bg-white shadow-lg space-y-3 lg:space-y-0 rounded-lg px-4 py-2 border">
+=======
+        <div className="bg-white shadow-lg space-y-3 lg:space-y-0 sm:rounded-lg px-4 py-2 border">
+>>>>>>> c4aa2a8a8549820d9b0a633fd346ad81ba11a1d8
           <div className="border-b py-2">
             <h1 className="font-bold text-base">Pricing</h1>
 
@@ -118,12 +132,20 @@ const NewProduct = () => {
           </div>
         </div>
 
+<<<<<<< HEAD
         <div className="bg-white shadow-lg py-4 rounded-lg border">
+=======
+        <div className="bg-white shadow-lg py-4 sm:rounded-lg border">
+>>>>>>> c4aa2a8a8549820d9b0a633fd346ad81ba11a1d8
           <TrackQuantity />
          
         </div>
 
+<<<<<<< HEAD
         <div className="bg-white shadow-lg p-3 rounded-lg border">
+=======
+        <div className="bg-white shadow-lg p-3 sm:rounded-lg border">
+>>>>>>> c4aa2a8a8549820d9b0a633fd346ad81ba11a1d8
           <Shipping />
          
           <div className='border-t flex text-center py-4 space-x-2'>
@@ -135,7 +157,11 @@ const NewProduct = () => {
           {shipping && (<Country />)}
         </div>
 
+<<<<<<< HEAD
         <div className="space-y-4 bg-white shadow-lg p-3 rounded-lg border">
+=======
+        <div className="space-y-4 bg-white shadow-lg p-3 sm:rounded-lg border">
+>>>>>>> c4aa2a8a8549820d9b0a633fd346ad81ba11a1d8
           <h1 className='font-bold'>Search engine listing</h1>
           <p>
             Add a title and description to see how this product might appear in
@@ -171,13 +197,22 @@ const NewProduct = () => {
       </div>
 
       {/* Right Section */}
+<<<<<<< HEAD
       <div className="space-y-6 w-full lg:w-1/3 m-auto md:m-0 lg:pt-12 pt-6">
         <div className="bg-white shadow-lg p-3 rounded-lg">
+=======
+      <div className="space-y-6 w-full xl:w-1/3 m-auto md:m-0 lg:pt-12 pt-6">
+        <div className="bg-white shadow-lg p-3 sm:rounded-lg">
+>>>>>>> c4aa2a8a8549820d9b0a633fd346ad81ba11a1d8
           <Status />
         </div>
 
         {/* Product Organization Section */}
+<<<<<<< HEAD
         <div className="bg-white shadow-lg p-4 rounded-lg border space-y-2">
+=======
+        <div className="bg-white shadow-lg p-4 sm:rounded-lg border space-y-2">
+>>>>>>> c4aa2a8a8549820d9b0a633fd346ad81ba11a1d8
           <h1 className='font-bold'>Product Organization</h1>
           <div className="flex flex-col space-y-2">
             <label htmlFor="productType">Product type</label>

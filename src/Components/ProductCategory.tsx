@@ -35,7 +35,7 @@ const ProductCategory = () => {
   return (
    <section>
         <div>
-        <div className='border border-black relative w-auto ' style={{ borderRadius: '10px' }}>
+        <div className=' border-black relative w-auto'>
       
       <input
         type="text"
@@ -43,7 +43,8 @@ const ProductCategory = () => {
         onClick={() => setShowDropdown(!showDropdown)}
         readOnly
         placeholder="Product"
-        style={{ width: '100%', padding: '8px' }}
+        className='w-full p-2 border border-black rounded-lg'
+        
       />
 
      
@@ -65,7 +66,8 @@ const ProductCategory = () => {
             <div
               key={index}
               onClick={() => handleSelectCode(country.code)}
-              style={{ padding: '8px', cursor: 'pointer', borderBottom: '1px solid #ddd' }}
+              className='p-2 border-b cursor-pointer'
+              // style={{ padding: '8px', cursor: 'pointer', borderBottom: '1px solid #ddd' }}
             >
               {country.name}
                {/* ({country.code}) */}
