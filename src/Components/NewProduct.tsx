@@ -1,41 +1,53 @@
-import React from 'react';
 import Editor from './DescriptionInput';
 import ProductCategory from './ProductCategory';
 import TrackQuantity from './TrackQuantity';
 import Shipping from './Shipping';
 import Status from './Status';
+import Country from '../Components/Country'
+import { LuPlusCircle } from "react-icons/lu";
+import { useState } from 'react';
+import { MdArrowBack } from "react-icons/md";
+import { Link } from 'react-router-dom';
+
 
 const NewProduct = () => {
+  const [shipping, setShipping] = useState(false)
   return (
-    <section className="lg:space-y-4 flex lg:flex-row flex-col justify-center lg:space-x-3 py-6 space-y-4">
+    <section className="lg:space-y-4 flex lg:flex-row flex-col justify-center lg:space-x-3 py-6 space-y-0">
       {/* Left Section */}
       <div className="w-full lg:w-2/4 space-y-6 m-auto md:m-0">
-        {/* Add Product Section */}
-        <div className="bg-white shadow-lg rounded-lg p-3 space-y-3 border">
+          <div className='flex items-center'>
+              <Link to={'/product'}><MdArrowBack className='text-xl'/></Link>
+              <h1 className="text-lg font-bold p-2">Add Product</h1>
+          </div>
+
+        <div className="bg-white shadow-lg rounded-lg px-2 py-4 border">
           <div>
-            <h1 className="text-lg font-bold p-2">Add Product</h1>
-            <div className="p-4 rounded-lg space-y-4 border">
-              <div className="flex flex-col space-y-2 p-2">
-                <label htmlFor="title">Title</label>
+            <div className="p-4 rounded-lg space-y-4">
+              <div className="flex flex-col space-y-2">
+                <label className='font-semibold' htmlFor="title">Title</label>
                 <input
                   type="text"
                   className="p-2 border border-black rounded-lg"
                 />
               </div>
-              <Editor />
+              <div>
+                <Editor />
+
+              </div>
             </div>
           </div>
-          {/* Media Section */}
-          <div>
-            <div className="p-2 rounded-lg border">
+          <div className='px-4 '>
+
               <h1 className="text-base font-semibold">Media</h1>
-              <input type="file" className="py-6 px-6" />
+            <div className="py-2 px-0 rounded-lg border border-dashed border-black">
+              <input type="file" className="py-6 px-5" />
             </div>
-            <div>
-              <label className="text-sm p-1" htmlFor="category">
+            <div className='py-3'>
+              <label className="font-semibold" htmlFor="category">
                 Category
               </label>
-              <div className="p-3 space-x-2 w-full">
+              <div className=" space-x-2 w-full">
                 <ProductCategory />
               </div>
               <p>
@@ -47,25 +59,25 @@ const NewProduct = () => {
         </div>
 
         {/* Pricing Section */}
-        <div className="bg-white shadow-lg space-y-3 rounded-lg p-3 border">
-          <div className="border-b py-4">
+        <div className="bg-white shadow-lg space-y-3 lg:space-y-0 rounded-lg px-4 py-2 border">
+          <div className="border-b py-2">
             <h1 className="font-bold text-base">Pricing</h1>
 
-            <div className="flex lg:flex-row flex-col gap-4">
-              <div className="flex flex-col flex-grow">
+            <div className="flex xl:flex-row flex-col gap-2 overflow-x-hidden">
+              <div className="flex flex-col">
                 <label htmlFor="price">Price</label>
                 <input
                   type="text"
                   placeholder="Rs 0.00"
-                  className="border border-black rounded-md p-1"
+                  className="border border-black rounded-md p-1 w-auto"
                 />
               </div>
-              <div className="flex flex-col flex-grow">
+              <div className="flex flex-col">
                 <label htmlFor="comparePrice">Compare-at price</label>
                 <input
                   type="text"
                   placeholder="Rs 0.00"
-                  className="border border-black rounded-md p-1"
+                  className="border border-black rounded-md p-1 w-auto"
                 />
               </div>
             </div>
@@ -78,51 +90,53 @@ const NewProduct = () => {
             </div>
           </div>
 
-          <div className="flex lg:flex-row flex-col gap-4 py-4">
-            <div className="flex flex-col flex-grow">
+          <div className="flex 2xl:flex-row flex-col gap-4 py-4 overflow-x-hidden">
+            <div className="flex flex-col">
               <label htmlFor="cost">Cost Per Item</label>
               <input
                 type="text"
                 placeholder="Rs 0.00"
-                className="border border-black rounded-md p-1"
+                className="border border-black rounded-md p-1 w-auto"
               />
             </div>
-            <div className="flex flex-col flex-grow">
+            <div className="flex flex-col">
               <label htmlFor="profit">Profit</label>
               <input
                 type="text"
                 placeholder="--"
-                className="border border-black rounded-md p-1"
+                className="border border-black rounded-md p-1 w-auto"
               />
             </div>
-            <div className="flex flex-col flex-grow">
+            <div className="flex flex-col">
               <label htmlFor="margin">Margin</label>
               <input
                 type="text"
                 placeholder="--"
-                className="border border-black rounded-md p-1"
+                className="border border-black rounded-md p-1 w-auto"
               />
             </div>
           </div>
         </div>
 
-        {/* Inventory Section */}
-        <div className="bg-white shadow-lg p-3 rounded-lg border">
+        <div className="bg-white shadow-lg py-4 rounded-lg border">
           <TrackQuantity />
-          <div className="flex items-center space-x-2 px-4 mt-4">
-            <input type="checkbox" id="sku" />
-            <label htmlFor="sku">This product has a SKU or barcode</label>
-          </div>
+         
         </div>
 
-        {/* Shipping Section */}
         <div className="bg-white shadow-lg p-3 rounded-lg border">
           <Shipping />
+         
+          <div className='border-t flex text-center py-4 space-x-2'>
+              <LuPlusCircle  onClick={() => setShipping(!shipping)} className='my-0.5 font-bold'/>
+                <p className='font-semibold text-sm'>Add Customs information</p>
+
+          </div>
+         
+          {shipping && (<Country />)}
         </div>
 
-        {/* SEO Section */}
         <div className="space-y-4 bg-white shadow-lg p-3 rounded-lg border">
-          <h1>Search engine listing</h1>
+          <h1 className='font-bold'>Search engine listing</h1>
           <p>
             Add a title and description to see how this product might appear in
             a search engine listing.
@@ -157,25 +171,14 @@ const NewProduct = () => {
       </div>
 
       {/* Right Section */}
-      <div className="space-y-6 w-full md:w-1/2 lg:w-1/3 m-auto md:m-0">
-        {/* Status Section */}
-        <div className="bg-white shadow-lg p-3 rounded-lg border">
+      <div className="space-y-6 w-full lg:w-1/3 m-auto md:m-0 lg:pt-12 pt-6">
+        <div className="bg-white shadow-lg p-3 rounded-lg">
           <Status />
         </div>
 
-        {/* Publishing Section */}
-        <div className="bg-white shadow-lg p-3 rounded-lg border">
-          <h1>Publishing</h1>
-          <p>Sales Channel</p>
-          <li>Online Store</li>
-          <li>Point of Sale</li>
-          <p>Market</p>
-          <li>International and Pakistan</li>
-        </div>
-
         {/* Product Organization Section */}
-        <div className="bg-white shadow-lg p-3 rounded-lg border">
-          <h1>Product Organization</h1>
+        <div className="bg-white shadow-lg p-4 rounded-lg border space-y-2">
+          <h1 className='font-bold'>Product Organization</h1>
           <div className="flex flex-col space-y-2">
             <label htmlFor="productType">Product type</label>
             <input
@@ -205,7 +208,13 @@ const NewProduct = () => {
             />
           </div>
         </div>
+
+        <div className='flex justify-end'>
+          <button className='px-4 py-2 rounded-lg bg-black text-white'>Save</button>
+        </div>
       </div>
+
+
     </section>
   );
 };
