@@ -57,6 +57,6 @@ const Country = () => {
       )}
     </div>
   )
-}
+};
 
 export default Country

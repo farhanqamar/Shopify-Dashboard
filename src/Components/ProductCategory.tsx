@@ -79,6 +79,6 @@ const ProductCategory = () => {
         </div>
    </section>
   )
-}
+};
 
 export default ProductCategory

@@ -1,5 +1,5 @@
 import { FaArrowLeftLong, FaPenClip } from "react-icons/fa6";
-import CustomerOverview from "../../Components/CustomerOverview";
+import CustomerOverview from "../../Components/AddProductsComponents/CustomerOverview";
 import DefaultAddress from "../../Components/DefaultAddress";
 import TaxExemptions from "../../Components/TaxExemptions";
 import { Link } from "react-router-dom";
